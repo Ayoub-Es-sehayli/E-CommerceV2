@@ -10,6 +10,7 @@ specifiers:
   '@radix-ui/react-dialog': ^1.0.2
   '@radix-ui/react-radio-group': ^1.1.0
   '@radix-ui/react-select': ^1.1.2
+  '@radix-ui/react-toast': ^1.1.2
   '@tanstack/react-query': ^4.16.0
   '@trpc/client': ^10.0.0
   '@trpc/next': ^10.0.0
@@ -37,6 +38,7 @@ specifiers:
   tailwindcss: ^3.2.0
   typescript: ^4.8.4
   zod: ^3.18.0
+  zustand: ^4.1.4
 
 dependencies:
   '@hookform/error-message': 2.0.1_fmbor74jztdxvyoczr45dg6z6u
@@ -47,6 +49,7 @@ dependencies:
   '@radix-ui/react-dialog': 1.0.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-select': 1.1.2_2zx2umvpluuhvlq44va5bta2da
+  '@radix-ui/react-toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.3.0_@trpc+server@10.3.0
   '@trpc/next': 10.3.0_7dxvgrt7oujhrxkttuwjlkafge
@@ -60,6 +63,7 @@ dependencies:
   react-hook-form: 7.39.6_react@18.2.0
   superjson: 1.9.1
   zod: 3.19.1
+  zustand: 4.1.4_react@18.2.0
 
 devDependencies:
   '@ladle/react': 2.4.5_acshzr5mj3iyamcqj7h6qlricm
@@ -2005,6 +2009,29 @@ packages:
       '@babel/runtime': 7.20.1
       '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
       react: 18.2.0
+    dev: false
+
+  /@radix-ui/react-toast/1.1.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-Kpr4BBYoP0O5A1UeDBmao87UnCMNdAKGNioQH5JzEm6OYTUVGhuDRbOwoZxPwOZ6vsjJHeIpdUrwbiHEB65CCw==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.20.1
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-collection': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
+      '@radix-ui/react-context': 1.0.0_react@18.2.0
+      '@radix-ui/react-dismissable-layer': 1.0.2_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-portal': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-presence': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-use-callback-ref': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
+      '@radix-ui/react-visually-hidden': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /@radix-ui/react-use-callback-ref/1.0.0_react@18.2.0:
@@ -5797,4 +5824,20 @@ packages:
 
   /zod/3.19.1:
     resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
+    dev: false
+
+  /zustand/4.1.4_react@18.2.0:
+    resolution: {integrity: sha512-k2jVOlWo8p4R83mQ+/uyB8ILPO2PCJOf+QVjcL+1PbMCk1w5OoPYpAIxy9zd93FSfmJqoH6lGdwzzjwqJIRU5A==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
