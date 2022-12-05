@@ -24,7 +24,7 @@ const Navbar: React.FC<React.PropsWithChildren> = ({ children }) => {
           </NextLink>
           <NextLink
             href="/"
-            className="rounded border border-white px-2 py-0.5 hover:border-none hover:bg-white hover:text-slate-900"
+            className="rounded border border-white px-2 py-0.5 hover:bg-white hover:text-slate-900"
           >
             Se Connecter
           </NextLink>
