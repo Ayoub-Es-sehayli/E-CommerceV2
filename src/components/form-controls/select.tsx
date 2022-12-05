@@ -10,8 +10,6 @@ import {
 
 interface SelectProps<TFieldValues extends FieldValues>
   extends UseControllerProps<TFieldValues> {
-  // handleOnChange: UseFormSetValue<TFieldValues>;
-  placeholder: string;
   label: string;
   errors: Partial<
     FieldErrorsImpl<{
@@ -23,53 +21,63 @@ interface SelectProps<TFieldValues extends FieldValues>
     value: string | number;
   }[];
 }
-function Select<TFieldValues extends FieldValues>() {
-  return React.forwardRef<HTMLButtonElement, SelectProps<TFieldValues>>(
-    ({ label, options, errors, ...props }, forwardedRef) => {
-      const { field } = useController(props);
-      return (
-        <span className="flex flex-col">
-          <label
-            htmlFor={props.name}
-            className="select-none text-lg font-bold text-slate-800"
-          >
-            {label}
-          </label>
+function SelectFn<TFieldValues extends FieldValues>(
+  refProps: SelectProps<TFieldValues>,
+  forwardedRef: React.ForwardedRef<HTMLButtonElement>
+) {
+  const { label, options, errors, ...props } = refProps;
+  const { field } = useController(props);
+  const [selectedLabel, setSelected] = React.useState("");
+  React.useEffect(() => {
+    options.map((o) => {
+      if (o.value === field.value) {
+        setSelected(o.label);
+      }
+    });
+  }, [field.value]);
+  return (
+    <span className="flex flex-col">
+      <label
+        htmlFor={props.name}
+        className="select-none text-lg font-bold text-slate-800"
+      >
+        {label}
+      </label>
 
-          <SelectImpl
-            {...props}
-            ref={forwardedRef}
-            value={field.value}
-            handleOnChange={(value) => field.onChange(value)}
-          >
-            {options.map((option) => (
-              <SelectItem key={option.value} value={option.value as string}>
-                {option.label}
-              </SelectItem>
-            ))}
-          </SelectImpl>
+      <SelectImpl
+        {...props}
+        ref={forwardedRef}
+        value={field.value}
+        selectedLabel={selectedLabel}
+        handleOnChange={(value) => field.onChange(value)}
+      >
+        {options.map((option) => (
+          <SelectItem key={option.value} value={option.value as string}>
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectImpl>
 
-          <ErrorMessage
-            errors={errors}
-            name={props.name}
-            render={({ message }) => (
-              <span className="ml-4 text-xs font-semibold text-rose-600">
-                {message}
-              </span>
-            )}
-          />
-        </span>
-      );
-    }
+      <ErrorMessage
+        errors={errors}
+        name={props.name}
+        render={({ message }) => (
+          <span className="ml-4 text-xs font-semibold text-rose-600">
+            {message}
+          </span>
+        )}
+      />
+    </span>
   );
 }
+
 const SelectImpl = React.forwardRef<
   HTMLButtonElement,
   SelectPrimitive.SelectProps & {
-    placeholder: string;
+    selectedLabel: string;
     handleOnChange?: (value: string) => void;
   }
->(({ children, placeholder, handleOnChange, ...props }, forwardedRef) => {
+>(({ children, handleOnChange, selectedLabel, ...props }, forwardedRef) => {
   return (
     <SelectPrimitive.Root {...props} onValueChange={handleOnChange}>
       <SelectPrimitive.Trigger
@@ -77,11 +85,8 @@ const SelectImpl = React.forwardRef<
         ref={forwardedRef}
         className="flex justify-between rounded-xl border p-3 text-lg text-sky-800 outline-slate-800 focus-within:outline-[3px]"
       >
-        <SelectPrimitive.Value
-          placeholder={placeholder}
-          aria-label={props.value}
-        >
-          {props.value}
+        <SelectPrimitive.Value className="text-lg font-semibold text-slate-800">
+          {selectedLabel}
         </SelectPrimitive.Value>
         <SelectPrimitive.Icon />
       </SelectPrimitive.Trigger>
@@ -106,7 +111,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.Item
       {...props}
       ref={forwardedRef}
-      className="hover:font-semibold hover:outline-none"
+      className="hover:font-semibold hover:outline-none data-[checked=true]:bg-slate-800 data-[checked=true]:font-semibold data-[checked=true]:text-white"
     >
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
       <SelectPrimitive.ItemIndicator>
@@ -115,4 +120,6 @@ const SelectItem = React.forwardRef<
     </SelectPrimitive.Item>
   );
 });
+
+const Select = React.forwardRef(SelectFn) as typeof SelectFn;
 export default Select;

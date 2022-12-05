@@ -1,4 +1,5 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
+import React from "react";
 import { useForm } from "react-hook-form";
 import "tailwindcss/tailwind.css";
 import { Input, Select } from "../components/form-controls";
@@ -27,7 +28,6 @@ export const TextInput = () => {
 
 export const SelectInput = () => {
   const {
-    register,
     control,
     formState: { errors },
     handleSubmit,
@@ -38,12 +38,10 @@ export const SelectInput = () => {
     { label: "lorem", value: 1 },
     { label: "ipsum", value: 2 },
   ];
-  const FormSelect = Select<{ name: string }>();
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <FormSelect
+      <Select
         label="Hello"
-        placeholder="Select name here"
         errors={errors}
         options={options}
         control={control}
