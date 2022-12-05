@@ -7,6 +7,7 @@ specifiers:
   '@prisma/client': ^4.5.0
   '@radix-ui/react-alert-dialog': ^1.0.2
   '@radix-ui/react-checkbox': ^1.0.1
+  '@radix-ui/react-collapsible': ^1.0.1
   '@radix-ui/react-dialog': ^1.0.2
   '@radix-ui/react-popover': ^1.0.2
   '@radix-ui/react-radio-group': ^1.1.0
@@ -47,6 +48,7 @@ dependencies:
   '@prisma/client': 4.6.1_prisma@4.6.1
   '@radix-ui/react-alert-dialog': 1.0.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-checkbox': 1.0.1_biqbaboplfbrettd7655fr4n2y
+  '@radix-ui/react-collapsible': 1.0.1_biqbaboplfbrettd7655fr4n2y
   '@radix-ui/react-dialog': 1.0.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-popover': 1.0.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-radio-group': 1.1.0_biqbaboplfbrettd7655fr4n2y
@@ -1806,6 +1808,25 @@ packages:
       '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
       '@radix-ui/react-use-previous': 1.0.0_react@18.2.0
       '@radix-ui/react-use-size': 1.0.0_react@18.2.0
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@radix-ui/react-collapsible/1.0.1_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-0maX4q91iYa4gjt3PsNf7dq/yqSR+HGAE8I5p54dQ6gnveS+ETWlMoijxrhmgV1k8svxpm34mQAtqIrJt4XZmA==}
+    peerDependencies:
+      react: ^16.8 || ^17.0 || ^18.0
+      react-dom: ^16.8 || ^17.0 || ^18.0
+    dependencies:
+      '@babel/runtime': 7.20.1
+      '@radix-ui/primitive': 1.0.0
+      '@radix-ui/react-compose-refs': 1.0.0_react@18.2.0
+      '@radix-ui/react-context': 1.0.0_react@18.2.0
+      '@radix-ui/react-id': 1.0.0_react@18.2.0
+      '@radix-ui/react-presence': 1.0.0_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-primitive': 1.0.1_biqbaboplfbrettd7655fr4n2y
+      '@radix-ui/react-use-controllable-state': 1.0.0_react@18.2.0
+      '@radix-ui/react-use-layout-effect': 1.0.0_react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: false
