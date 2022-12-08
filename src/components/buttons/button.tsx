@@ -6,8 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, icon, minWidth, ...props }, forwardedRef) => {
-    let className =
-      "flex gap-2 justify-center items-center rounded-lg text-lg font-semibold whitespace-nowrap ";
+    let className = "rounded-lg text-lg font-semibold whitespace-nowrap";
     if (minWidth) className += minWidth + " ";
     else className += " w-min ";
     return (
@@ -16,8 +15,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={className + props.className}
         ref={forwardedRef}
       >
-        {icon ? <i className={icon}></i> : null}
-        <span>{children}</span>
+        <span className="flex items-center justify-center gap-2">
+          {icon ? <i className={icon}></i> : null}
+          {children}
+        </span>
       </button>
     );
   }
