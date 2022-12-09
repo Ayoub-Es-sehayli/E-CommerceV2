@@ -1,7 +1,7 @@
 import * as AlertPrimitive from "@radix-ui/react-alert-dialog";
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import Button from "../buttons";
+import { Button } from "../buttons";
 
 interface AlertProps {
   title: string;

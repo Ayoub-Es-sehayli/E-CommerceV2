@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../buttons";
+import { Button } from "../buttons";
 
 interface CardProps {
   thumbnail?: string;

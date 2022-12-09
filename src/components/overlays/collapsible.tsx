@@ -1,6 +1,6 @@
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible";
 import React, { useState } from "react";
-import Button from "../buttons";
+import { Button } from "../buttons";
 
 export interface CollapsibleProps
   extends CollapsiblePrimitive.CollapsibleContentProps {

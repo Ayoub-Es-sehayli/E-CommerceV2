@@ -1,6 +1,6 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import React from "react";
-import Button from "../buttons";
+import { Button } from "../buttons";
 
 export interface PopoverProps extends PopoverPrimitive.PopoverContentProps {
   triggerButton: ReturnType<typeof Button>;

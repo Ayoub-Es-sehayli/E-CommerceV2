@@ -1,6 +1,6 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog";
 import * as React from "react";
-import Button from "../buttons";
+import { Button } from "../buttons";
 
 interface DialogProps {
   title: string;
