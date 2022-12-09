@@ -1,7 +1,7 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useCallback, useState } from "react";
 import "tailwindcss/tailwind.css";
-import Button from "../components/buttons";
+import { Button } from "../components/buttons";
 import { Spinner, ToastProvider, useToast } from "../components/notification";
 
 export const NotificationSystem = () => {

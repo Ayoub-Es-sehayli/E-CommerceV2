@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "tailwindcss/tailwind.css";
-import Button from "../components/buttons";
+import { Button, FAB } from "../components/buttons";
 
 export const Buttons = () => {
   return (
@@ -25,5 +25,12 @@ export const Buttons = () => {
         <i className="bi-airplane" />
       </Button>
     </div>
+  );
+};
+export const FabOverlay = () => {
+  return (
+    <span>
+      <FAB icon="bi-cart" />
+    </span>
   );
 };

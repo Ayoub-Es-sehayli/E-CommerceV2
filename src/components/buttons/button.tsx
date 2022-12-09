@@ -23,4 +23,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
+export const FAB = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (props, forwardedRef) => {
+    return (
+      <div className="absolute inset-0">
+        <Button
+          {...props}
+          ref={forwardedRef}
+          className="absolute bottom-6 right-6 rounded-full bg-slate-800 px-3 py-2 text-white hover:bg-slate-600 focus:bg-slate-600"
+        ></Button>
+      </div>
+    );
+  }
+);
 export default Button;

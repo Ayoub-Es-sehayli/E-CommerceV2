@@ -2,7 +2,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import React from "react";
 import { useForm } from "react-hook-form";
 import "tailwindcss/tailwind.css";
-import Button from "../components/buttons";
+import { Button } from "../components/buttons";
 import { Alert, Dialog, DialogClose } from "../components/dialogs";
 import { Input } from "../components/form-controls";
 

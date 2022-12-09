@@ -1,6 +1,6 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "tailwindcss/tailwind.css";
-import Button from "../components/buttons";
+import { Button } from "../components/buttons";
 import { Popover } from "../components/overlays";
 
 export const PopoverOverlay = () => {
