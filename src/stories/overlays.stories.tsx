@@ -1,7 +1,8 @@
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "tailwindcss/tailwind.css";
-import { Button } from "../components/buttons";
+import { Button, FAB } from "../components/buttons";
 import { Popover } from "../components/overlays";
+import Sidebar from "../components/overlays/sidebar";
 
 export const PopoverOverlay = () => {
   return (
@@ -16,4 +17,8 @@ export const PopoverOverlay = () => {
       Hello from popover
     </Popover>
   );
+};
+
+export const SidebarOverlay = () => {
+  return <Sidebar triggerButton={<FAB icon="bi-cart" />} />;
 };
