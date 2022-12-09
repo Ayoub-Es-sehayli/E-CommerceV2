@@ -4,7 +4,9 @@ import { FieldErrorsImpl, UseFormRegisterReturn } from "react-hook-form";
 
 interface InputProps extends UseFormRegisterReturn {
   placeholder: string;
-  label: string;
+  label?: string;
+  className?: string;
+  width?: string;
   errors: Partial<
     FieldErrorsImpl<{
       [x: string]: any;
@@ -12,19 +14,28 @@ interface InputProps extends UseFormRegisterReturn {
   >;
 }
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, placeholder, errors, ...inputProps }, forwardedRef) => {
+  (
+    { label, placeholder, errors, className, width, ...inputProps },
+    forwardedRef
+  ) => {
     return (
-      <span className="flex flex-col gap-1">
-        <label
-          htmlFor={inputProps.name}
-          className="select-none text-lg font-bold text-slate-800"
-        >
-          {label}
-        </label>
+      <span className={"flex flex-col gap-1 " + width}>
+        {label && (
+          <label
+            htmlFor={inputProps.name}
+            className="select-none text-lg font-bold text-slate-800"
+          >
+            {label}
+          </label>
+        )}
         <input
           {...inputProps}
           ref={forwardedRef}
-          className="rounded-xl border p-2 text-lg outline-slate-800 placeholder:text-sm placeholder:text-sky-800 focus-within:outline-[3px]"
+          placeholder={placeholder}
+          className={
+            "rounded-xl border px-2 py-0.5 text-lg outline-slate-800 placeholder:text-sm placeholder:text-sky-800 focus-within:outline-[3px] " +
+            className
+          }
         />
         <ErrorMessage
           errors={errors}

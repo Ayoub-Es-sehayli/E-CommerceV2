@@ -3,7 +3,7 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 import { Navbar } from "../components/navigation";
 
-export const NavbarContainer = () => {
+export const MainLayout = () => {
   return (
     <div>
       <Navbar></Navbar>
