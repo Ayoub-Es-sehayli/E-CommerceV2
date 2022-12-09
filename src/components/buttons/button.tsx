@@ -26,11 +26,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 export const FAB = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, forwardedRef) => {
     return (
-      <div className="absolute inset-0">
+      <div className="fixed inset-0">
         <Button
           {...props}
           ref={forwardedRef}
-          className="absolute bottom-6 right-6 rounded-full bg-slate-800 px-3 py-2 text-white hover:bg-slate-700 focus:bg-slate-700"
+          className="fixed bottom-6 right-6 rounded-full bg-slate-800 px-3 py-2 text-white hover:bg-slate-700 focus:bg-slate-700"
         ></Button>
       </div>
     );

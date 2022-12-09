@@ -27,7 +27,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, DialogProps>(
               ref={forwardedRef}
               className="fixed right-0 z-10 h-full w-2/3 bg-white md:w-1/4"
             >
-              Content
+              {children}
             </Dialog.Content>
           </Transition.Child>
           <Dialog.Overlay
