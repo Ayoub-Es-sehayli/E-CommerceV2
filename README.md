@@ -1,8 +1,9 @@
 # Generic E-Commerce Web Application
 
+This is a redesign and improvement over v1, to also get away from vendor lock-in (Firebase)
 Made with [t3-app](https://create.t3.gg/en/introduction)
 
-## Features
+## Planned Features
 
 - Cart
 - Order Tracking
