@@ -18,7 +18,7 @@ interface SelectProps<TFieldValues extends FieldValues>
   >;
   options: {
     label: string;
-    value: string | number;
+    value: number;
   }[];
 }
 function SelectFn<TFieldValues extends FieldValues>(
@@ -49,10 +49,10 @@ function SelectFn<TFieldValues extends FieldValues>(
         ref={forwardedRef}
         value={field.value}
         selectedLabel={selectedLabel}
-        handleOnChange={(value) => field.onChange(value)}
+        handleOnChange={(value) => field.onChange(Number.parseInt(value))}
       >
         {options.map((option) => (
-          <SelectItem key={option.value} value={option.value as string}>
+          <SelectItem key={option.value} value={option.value.toString()}>
             {option.label}
           </SelectItem>
         ))}
