@@ -8,13 +8,22 @@ interface AlertProps {
   description?: string;
   submitText: string;
   cancelText: string;
+  classnames: { submit: string; cancel: string };
   action: () => Promise<void> | void;
   triggerButton: ReturnType<typeof Button>;
 }
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   (
-    { title, description, submitText, cancelText, action, triggerButton },
+    {
+      title,
+      description,
+      submitText,
+      cancelText,
+      action,
+      triggerButton,
+      classnames,
+    },
     forwardedRef
   ) => {
     const [open, setOpen] = React.useState(false);
@@ -52,13 +61,15 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
               </AlertPrimitive.Description>
               <span className="flex w-full justify-end gap-2">
                 <AlertPrimitive.Cancel asChild onClick={toggleOpen}>
-                  <Button className="bg-rose-600 text-white hover:bg-rose-500 ">
+                  <Button
+                    className={"px-2 py-1 text-white " + classnames.cancel}
+                  >
                     {cancelText}
                   </Button>
                 </AlertPrimitive.Cancel>
                 <Button
                   type="submit"
-                  className="bg-emerald-700 text-white hover:bg-emerald-600"
+                  className={"px-2 py-1 text-white " + classnames.submit}
                 >
                   {submitText}
                 </Button>

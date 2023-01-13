@@ -1,8 +1,15 @@
-import { flexRender, TableOptions, useReactTable } from "@tanstack/react-table";
+import {
+  flexRender,
+  getCoreRowModel,
+  TableOptions,
+  useReactTable,
+} from "@tanstack/react-table";
 import React from "react";
 
-function Table<T extends unknown>({ ...props }: TableOptions<T>) {
-  const table = useReactTable(props);
+function Table<T extends unknown>({
+  ...props
+}: Omit<TableOptions<T>, "getCoreRowModel">) {
+  const table = useReactTable({ ...props, getCoreRowModel: getCoreRowModel() });
   return (
     <table>
       <thead>
@@ -10,7 +17,11 @@ function Table<T extends unknown>({ ...props }: TableOptions<T>) {
           <tr key={headerGroup.id}>
             {headerGroup.headers.map((header) => {
               return (
-                <th key={header.id} colSpan={header.colSpan}>
+                <th
+                  key={header.id}
+                  colSpan={header.colSpan}
+                  className="text-left"
+                >
                   {header.isPlaceholder
                     ? null
                     : flexRender(

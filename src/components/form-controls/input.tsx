@@ -33,7 +33,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           ref={forwardedRef}
           placeholder={placeholder}
           className={
-            "rounded-xl border px-2 py-0.5 text-lg outline-slate-800 placeholder:text-sm placeholder:text-sky-800 focus-within:outline-[3px] " +
+            "rounded-xl border px-2 py-1.5 text-lg outline-slate-800 placeholder:text-sm placeholder:text-sky-800 focus-within:outline-[3px] " +
             className
           }
         />

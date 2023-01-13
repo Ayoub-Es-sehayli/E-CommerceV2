@@ -42,7 +42,7 @@ export const Toast = React.forwardRef<HTMLLIElement, ToastProps>(
           </ToastPrimitive.Title>
           <ToastPrimitive.Description>{message}</ToastPrimitive.Description>
         </div>
-        <ToastPrimitive.Action asChild altText="">
+        <ToastPrimitive.Action asChild altText="Dismiss this Notification">
           {children}
         </ToastPrimitive.Action>
         <ToastPrimitive.Close
