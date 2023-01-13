@@ -64,3 +64,11 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Category {
+  id            Int @id @default(autoincrement())
+  name          String
+  parentId      Int?
+  parent        Category? @relation("CategoryParentFK", fields: [parentId], references: [id])
+  children      Category[] @relation("CategoryParentFK")
+}
