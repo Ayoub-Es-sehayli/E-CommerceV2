@@ -1,9 +1,9 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { type AppProps, type AppType } from "next/app";
-
+import { type AppProps } from "next/app";
 import { trpc } from "../utils/trpc";
 
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { NextPageWithLayout } from "../components/layouts";
 import "../styles/globals.css";
@@ -19,6 +19,7 @@ function MyApp({
   return (
     <SessionProvider session={session}>
       {getLayout(<Component {...pageProps} />)}
+      <ReactQueryDevtools />
     </SessionProvider>
   );
 }

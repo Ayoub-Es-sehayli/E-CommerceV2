@@ -15,6 +15,7 @@ specifiers:
   '@radix-ui/react-select': ^1.1.2
   '@radix-ui/react-toast': ^1.1.2
   '@tanstack/react-query': ^4.16.0
+  '@tanstack/react-query-devtools': ^4.22.0
   '@tanstack/react-table': ^8.7.0
   '@trpc/client': ^10.0.0
   '@trpc/next': ^10.0.0
@@ -58,6 +59,7 @@ dependencies:
   '@radix-ui/react-select': 1.1.2_2zx2umvpluuhvlq44va5bta2da
   '@radix-ui/react-toast': 1.1.2_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+  '@tanstack/react-query-devtools': 4.22.0_2ryzfomli4bbns3rdhwnpgjdhm
   '@tanstack/react-table': 8.7.0_biqbaboplfbrettd7655fr4n2y
   '@trpc/client': 10.3.0_@trpc+server@10.3.0
   '@trpc/next': 10.3.0_7dxvgrt7oujhrxkttuwjlkafge
@@ -2254,8 +2256,30 @@ packages:
       tslib: 2.4.1
     dev: false
 
+  /@tanstack/match-sorter-utils/8.7.6:
+    resolution: {integrity: sha512-2AMpRiA6QivHOUiBpQAVxjiHAA68Ei23ZUMNaRJrN6omWiSFLoYrxGcT6BXtuzp0Jw4h6HZCmGGIM/gbwebO2A==}
+    engines: {node: '>=12'}
+    dependencies:
+      remove-accents: 0.4.2
+    dev: false
+
   /@tanstack/query-core/4.18.0:
     resolution: {integrity: sha512-PP4mG8MD08sq64RZCqMfXMYfaj7+Oulwg7xZ/fJoEOdTZNcPIgaOkHajZvUBsNLbi/0ViMvJB4cFkL2Jg2WPbw==}
+    dev: false
+
+  /@tanstack/react-query-devtools/4.22.0_2ryzfomli4bbns3rdhwnpgjdhm:
+    resolution: {integrity: sha512-YeYFBnfqvb+ZlA0IiJqiHNNSzepNhI1p2o9i8NlhQli9+Zrn230M47OBaBUs8qr3DD1dC2zGB1Dis50Ktz8gAA==}
+    peerDependencies:
+      '@tanstack/react-query': 4.22.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/match-sorter-utils': 8.7.6
+      '@tanstack/react-query': 4.18.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      superjson: 1.12.1
+      use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
 
   /@tanstack/react-query/4.18.0_biqbaboplfbrettd7655fr4n2y:
@@ -5270,6 +5294,10 @@ packages:
       jsesc: 0.5.0
     dev: true
 
+  /remove-accents/0.4.2:
+    resolution: {integrity: sha512-7pXIJqJOq5tFgG1A2Zxti3Ht8jJF337m4sowbuHsW30ZnkQFnDzy9qBNhgzX8ZLW4+UBcXiiR7SwR6pokHsxiA==}
+    dev: false
+
   /resolve-from/4.0.0:
     resolution: {integrity: sha512-pb/MYmXstAkysRFx8piNI1tGFNQIFA3vkE3Gq4EuA1dF6gHp/+vgZqsCGJapvy8N3Q+4o7FwvquPJcnZ7RYy4g==}
     engines: {node: '>=4'}
@@ -5564,6 +5592,13 @@ packages:
       pirates: 4.0.5
       ts-interface-checker: 0.1.13
     dev: true
+
+  /superjson/1.12.1:
+    resolution: {integrity: sha512-HMTj43zvwW5bD+JCZCvFf4DkZQCmiLTen4C+W1Xogj0SPOpnhxsriogM04QmBVGH5b3kcIIOr6FqQ/aoIDx7TQ==}
+    engines: {node: '>=10'}
+    dependencies:
+      copy-anything: 3.0.2
+    dev: false
 
   /superjson/1.9.1:
     resolution: {integrity: sha512-oT3HA2nPKlU1+5taFgz/HDy+GEaY+CWEbLzaRJVD4gZ7zMVVC4GDNFdgvAZt6/VuIk6D2R7RtPAiCHwmdzlMmg==}
