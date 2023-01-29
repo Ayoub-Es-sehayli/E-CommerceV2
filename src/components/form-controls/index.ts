@@ -1,4 +1,4 @@
 import Input from "./input";
 import Select from "./select";
-
-export { Input, Select as Select };
+import TextArea from "./textarea";
+export { Input, Select, TextArea };
