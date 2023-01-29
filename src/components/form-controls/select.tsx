@@ -83,14 +83,14 @@ const SelectImpl = React.forwardRef<
       <SelectPrimitive.Trigger
         id={props.name}
         ref={forwardedRef}
-        className="flex justify-between rounded-xl border p-3 text-lg text-sky-800 outline-slate-800 focus-within:outline-[3px]"
+        className="flex justify-between rounded-xl border border-slate-600 p-2 text-lg text-sky-800 outline-slate-800 focus-within:outline-[3px]"
       >
         <SelectPrimitive.Value className="text-lg font-semibold text-slate-800">
           {selectedLabel}
         </SelectPrimitive.Value>
         <SelectPrimitive.Icon />
       </SelectPrimitive.Trigger>
-      <SelectPrimitive.Portal className="w-full rounded-xl border bg-white p-3 text-lg ">
+      <SelectPrimitive.Portal className="w-full rounded-xl border bg-white p-2 text-lg ">
         <SelectPrimitive.Content>
           <SelectPrimitive.ScrollUpButton />
           <SelectPrimitive.Viewport className="outline-slate-800 focus-within:outline-[3px]">

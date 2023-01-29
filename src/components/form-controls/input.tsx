@@ -1,12 +1,13 @@
 import { ErrorMessage } from "@hookform/error-message";
-import React, { forwardRef } from "react";
+import React from "react";
 import { FieldErrorsImpl, UseFormRegisterReturn } from "react-hook-form";
 
 interface InputProps extends UseFormRegisterReturn {
-  placeholder: string;
+  placeholder?: string;
   label?: string;
   className?: string;
   width?: string;
+  type?: string;
   errors: Partial<
     FieldErrorsImpl<{
       [x: string]: any;
@@ -14,10 +15,7 @@ interface InputProps extends UseFormRegisterReturn {
   >;
 }
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    { label, placeholder, errors, className, width, ...inputProps },
-    forwardedRef
-  ) => {
+  ({ label, errors, className, width, ...inputProps }, forwardedRef) => {
     return (
       <span className={"flex flex-col gap-1 " + width}>
         {label && (
@@ -31,9 +29,8 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <input
           {...inputProps}
           ref={forwardedRef}
-          placeholder={placeholder}
           className={
-            "rounded-xl border px-2 py-1.5 text-lg outline-slate-800 placeholder:text-sm placeholder:text-sky-800 focus-within:outline-[3px] " +
+            "rounded-xl px-2 py-1.5 text-lg placeholder:text-sm placeholder:text-sky-800 " +
             className
           }
         />
