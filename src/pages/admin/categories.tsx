@@ -2,18 +2,10 @@ import { useQueryClient } from "@tanstack/react-query";
 import { createColumnHelper } from "@tanstack/react-table";
 import Head from "next/head";
 import React from "react";
-import { useController, useForm } from "react-hook-form";
-import { number } from "zod";
 import { Button } from "../../components/buttons";
 import { Table } from "../../components/collections";
-import {
-  Alert,
-  Dialog,
-  DialogClose,
-  useDialog,
-} from "../../components/dialogs";
-import { Input, Select } from "../../components/form-controls";
-import Checkbox from "../../components/form-controls/checkbox";
+import { Alert, Dialog, useDialog } from "../../components/dialogs";
+import ProductCategoryForm from "../../components/forms/ProductCategoryForm";
 import { AdminLayout, NextPageWithLayout } from "../../components/layouts";
 import {
   Spinner,
@@ -22,90 +14,6 @@ import {
 } from "../../components/notification";
 import { Show } from "../../components/overlays";
 import { trpc } from "../../utils/trpc";
-
-const CategoryForm: React.FC<{
-  onSubmit: (category: {
-    id?: number;
-    name: string;
-    hasParent: boolean;
-    parentId?: number;
-  }) => void;
-  options: {
-    label: string;
-    value: number;
-  }[];
-  initialValues?: {
-    name: string;
-    parentId?: number;
-  };
-}> = ({ onSubmit, options, initialValues }) => {
-  const [isSubmitting, setSubmitting] = React.useState(false);
-  const {
-    handleSubmit,
-    control,
-    register,
-    formState: { errors },
-    reset,
-  } = useForm<Parameters<typeof onSubmit>["0"]>({
-    defaultValues: {
-      ...initialValues,
-      hasParent: initialValues?.parentId !== undefined,
-    },
-  });
-  React.useEffect(() => {
-    reset({
-      ...initialValues,
-      hasParent: initialValues?.parentId !== undefined,
-    });
-  }, [reset, initialValues]);
-  const {
-    field: { value: hasParentChecked },
-  } = useController({ control: control, name: "hasParent" });
-  const FormCheckbox = Checkbox<Parameters<typeof onSubmit>["0"]>();
-  const submit = async (data: Parameters<typeof onSubmit>["0"]) => {
-    setSubmitting(true);
-    console.log("Got Ok");
-    onSubmit({ ...data });
-    setSubmitting(false);
-    reset();
-  };
-  return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-col gap-3">
-      <Input
-        label="Name"
-        placeholder="Input name here"
-        errors={errors}
-        {...register("name")}
-      />
-      <FormCheckbox
-        name="hasParent"
-        label="Is Sub-category?"
-        errors={errors}
-        control={control}
-      />
-      {hasParentChecked === true ? (
-        <Select
-          name="parentId"
-          errors={errors}
-          label="Parent Category"
-          options={options}
-          control={control}
-        />
-      ) : null}
-      <span className="flex justify-center gap-2">
-        <Button
-          disabled={isSubmitting}
-          type="submit"
-          className="bg-emerald-700 px-4 py-1 text-white hover:bg-emerald-600"
-        >
-          <Show when={!isSubmitting} fallback={<Spinner isLoading />}>
-            Save
-          </Show>
-        </Button>
-      </span>
-    </form>
-  );
-};
 
 const CategoriesPage: NextPageWithLayout = () => {
   const dialog = useDialog({
@@ -241,7 +149,7 @@ const CategoriesPage: NextPageWithLayout = () => {
                 />
               }
             >
-              <CategoryForm
+              <ProductCategoryForm
                 onSubmit={addCategoryOnSubmit}
                 options={parentCategories}
               />
@@ -255,7 +163,7 @@ const CategoriesPage: NextPageWithLayout = () => {
             </div>
             <aside className="w-1/3">
               <Show when={isEditing} fallback={<></>}>
-                <CategoryForm
+                <ProductCategoryForm
                   onSubmit={editCategoryOnSubmit}
                   options={parentCategories}
                   initialValues={selectedCategory}
