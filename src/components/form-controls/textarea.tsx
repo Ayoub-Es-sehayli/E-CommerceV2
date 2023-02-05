@@ -8,6 +8,7 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { $getRoot, EditorState } from "lexical";
 import React from "react";
 import {
   FieldErrorsImpl,
@@ -39,6 +40,16 @@ function TextArea<TFieldValues extends FieldValues>({
     onError: (error) => console.error(error),
   };
   const { field } = useController(inputProps);
+  const onChange = React.useCallback(
+    (state: EditorState) => {
+      state.read(() => {
+        const content = $getRoot().__cachedText;
+        // Set Field value to current content
+        field.onChange(content);
+      });
+    },
+    [field]
+  );
   return (
     <span className={"flex flex-col gap-1"}>
       {label && (
@@ -58,7 +69,7 @@ function TextArea<TFieldValues extends FieldValues>({
           placeholder={<></>}
           ErrorBoundary={LexicalErrorBoundary}
         />
-        <OnChangePlugin onChange={field.onChange} />
+        <OnChangePlugin onChange={(state) => onChange(state)} />
         <HistoryPlugin />
       </LexicalComposer>
       <ErrorMessage
